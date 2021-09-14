@@ -62,6 +62,9 @@ img{
 }
 
 
+///Table sort css from: https://github.com/tristen/tablesort/blob/gh-pages/tablesort.css //
+
+
 
 th[role=columnheader]:not(.no-sort) {
 	cursor: pointer;
