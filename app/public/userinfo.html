@@ -109,8 +109,8 @@ img:hover {
 <!--Source for Code: https://github.com/tag/msis-in-class-2021/blob/blue-2021/public/index.html !-->
 
   
-          <br>
-          <br> 
+
+
           <form v-on: submit.prevent="fetchUserData">
             <a v-bind:href= "result.picture.large">
               <img v-bind:src ="result.picture.thumbnail" alt="pro_picture">
@@ -122,6 +122,12 @@ img:hover {
           <p><p><b>Email:</b></p> <a v-bind:href="'mailto:' + result.email">{{ result.email }}</a></p>
           <p><b>Age:</b> {{result.dob.age}} </p>
           <p><b>Birthdate</b> {{prettyBirthday}} </p>
+<!-- Source code for Refresh button: https://github.com/tag/msis-in-class-2021/blob/blue-2021/public/index.html-->
+
+          <form v-on:submit.prevent="fetchUserData">
+            <button type="submit">Refresh</button>
+          </form>
+            
           
           
 </div>
