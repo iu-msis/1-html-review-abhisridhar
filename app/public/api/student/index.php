@@ -2,19 +2,12 @@
 // require 'common.php';
 require 'class/DbConnection.php';
 
-echo ":::";
-// print_R($_ENV);
-echo getenv('MYSQL_DATABASE');
-
 
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
 
-echo $db;
-exit;
-
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM Students';
+$sql = 'SELECT * FROM student';
 $vars = [];
 
 // if (isset($_GET['guid'])) {
@@ -26,7 +19,7 @@ $vars = [];
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$patients = $stmt->fetchAll();
+$students = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
 $json = json_encode($students, JSON_PRETTY_PRINT);
@@ -34,5 +27,3 @@ $json = json_encode($students, JSON_PRETTY_PRINT);
 // Step 4: Output
 header('Content-Type: application/json');
 echo $json;
-
-
