@@ -5,6 +5,8 @@
         <title>Book Table </title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <link href="css/home.css" rel="stylesheet" type="text/css" />
+
+        <script src="https://unpkg.com/vue@next"></script>
     </head>
     <header>
         <h1>Book<span>Table</span></h1>
@@ -56,8 +58,10 @@
                 }
                 </style>
 <p style="font-size:50px; font-family: 'Courier'; color: white; "><b><u>Book Table</u></b></p>
-              
-<table id="myTable" class=" table order-list">
+
+<div id="someApp" class="container">
+<div class="col col-8">
+<table id="myTable" class=" table">
 <thead>
   <tr>
     <th>Title</th>
@@ -69,44 +73,23 @@
   </tr>
 </thead> 
 <tbody>
-  <tr>
-    <td>(1) Harry Potter and the Goblet of Fire</td>
-    <td>J.K. Rowling</td>
-    <td>2000</td>
-    <td>Bloomsbury Publishing</td>
-    <td>636 pages</td>
-    <td>$6.92</td>
+  <tr v-for="book in books"> 
+    <td> {{ book.title}} </td>
+    <td> {{book.author}} </td>
+    <td> {{book.yearpublished}} </td>
+    <td> {{book.publisher}} </td>
+    <td> {{book.page_count}} </td>
+    <td> {{book.msrp}} </td>
   
 
   </tr>
 
-  <tr>
-    <td>(2) Harry Potter and the Chamber of Secrets</td>
-    <td>J.K. Rowling</td>
-    <td>1998</td>
-    <td>Bloomsbury Publishing</td>
-    <td>251 pages</td>
-    <td>$6.98</td>
-  </tr>
-  <tr>
-    <td>(3) Harry Potter and the Prisoner of Askaban</td>
-    <td>J.K. Rowling</td>
-    <td>1999</td>
-    <td>Bloomsbury Publishing</td>
-    <td>317 pages</td>
-    <td>$12.87</td>
-
-  <tr>
-    <td>(4) Harry Potter and the Half Blood Prince</td>
-    <td>J.K. Rowling</td>
-    <td>2005</td>
-    <td>Bloomsbury Publishing</td>
-    <td>607 pages</td>
-    <td>$6.98</td>
-  </tr>
+  
 </tbody>
 </table>
-              
+</div>
+</div>
+     
 
 
 
@@ -186,5 +169,6 @@
   new Tablesort(document.getElementById('myTable'));
 </script>
 
+<script src="js/books.js"></script>
 </body>
 </html>
