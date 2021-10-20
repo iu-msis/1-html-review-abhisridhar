@@ -24,7 +24,7 @@ try {
 //     exit;
 // }
 
-require("DbConnection.php");
+require("class/DbConnection.php");
 
 
 // Step 0: Validate the incoming data
@@ -37,16 +37,18 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO offer (studentId, companyName, salary, bonus, offerDate)
-  VALUES (?, ?, ?, ?, ?)'
+  'INSERT INTO books (title, author, yearpublished, publisher, page_count, msrp)
+  VALUES (?, ?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
-  $_POST['studentId'],
-  $_POST['companyName'],
-  $_POST['salary'],
-  $_POST['bonus'],
-  $_POST['offerDate']
+  $_POST['title'],
+  $_POST['author'],
+  $_POST['yearpublished'],
+  $_POST['publisher'],
+  $_POST['page_count'],
+  $_POST['msrp'],
+
 ]);
 
 // Get auto-generated PK from DB
@@ -57,4 +59,5 @@ $pk = $db->lastInsertId();
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../offer/?student=' . $pk);
+header('Location: ../books/');
+

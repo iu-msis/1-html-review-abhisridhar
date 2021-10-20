@@ -56,7 +56,7 @@ const SomeApp = {
   
           console.log("Posting:", JSON.stringify(this.offerForm));
           
-          fetch('api/offer/create.php', {
+          fetch('api/books/create.php', {
               method:'POST',
               body: JSON.stringify(this.offerForm),
               headers: {
@@ -83,3 +83,4 @@ const SomeApp = {
   }
   
   Vue.createApp(SomeApp).mount('#offerApp');
+  

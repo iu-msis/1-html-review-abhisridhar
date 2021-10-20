@@ -80,6 +80,8 @@
     <td> {{book.publisher}} </td>
     <td> {{book.page_count}} </td>
     <td> {{book.msrp}} </td>
+
+
   
 
   </tr>
@@ -87,66 +89,48 @@
   
 </tbody>
 </table>
-</div>
-</div>
-     
-
-
-
-<div class="container">
-    <table>
-
-<thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Year Published</th>
-            <th>Publisher</th>
-            <th>Page Count</th>
-            <th>MSRP</th>
-        </tr>
-    </thead>
-    <tbody>
-        
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <h3>Add Books Here:</h3>
+    <form v-on:submit.prevent="postNewBook">
+    <div class="mb-1">
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" v-model="bookForm.title"
+       class="form-control" id="title">
+    </div>
+    <div class="mb-1">
+      <label for="author" class="form-label">Author:</label>
+      <input type="text" v-model="bookForm.author"
+       class="form-control" id="author">
+    </div>
+    <div class="mb-1">
+      <label for="yearpublished" class="form-label">Year Published:</label>
+      <input type="number" v-model="bookForm.yearpublished"
+       class="form-control" id="yearpublished">
+    </div>
+    <div class="mb-1">
+      <label for="publisher" class="form-label">Publisher:</label>
+      <input type="test" v-model="bookForm.publisher"
+       class="form-control" id="publisher">
+    </div>
+    <div class="mb-1">
+      <label for="pages" class="form-label">Pages:</label>
+      <input type="number" v-model="bookForm.page_count"
+       class="form-control" id="page_count">
+    </div>
+    <div class="mb-1">
+      <label for="msrp" class="form-label">MSRP:</label>
+      <input type="number" v-model="bookForm.msrp"
+       class="form-control" id="msrp">
+    </div>
   
-
-        <tr>
-            <td class="col-sm-4">
-                <input type="text" name="title" class="form-control" />
-            </td>
-            <td class="col-sm-4">
-                <input type="mail" name="author"  class="form-control"/>
-            </td>
-            <td class="col-sm-1">
-                <input type="number" name="yearpublished"  class="form-control"/>
-            </td>
-            <td class="col-sm-3">
-                <input type="text" name="publisher" class="form-control"/>
-            </td>
-            <td class="col-sm-6">
-                <input type="number" name="pagecount" class="form-control"/>
-            </td>
-            <td class="col-sm-6">
-                <input type="number" name="msrp" class="form-control"/>
-            </td>
-            
-            
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="10" style="text-align: left;">
-                <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
-            </td>
-        </tr>
-        <tr>
-        </tr>
-    </tfoot>
-</table>
-
-
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 
 </div>
+
+</div>
+
 <br>
 <br>
 <p style="font-size:20px; font-family: 'Courier'; color: white; "><i><u>Sources for code:</u></i></p>
